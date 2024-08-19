@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JazzPassword Generator</title>
+</head>
+<body>
+    <h1>JazzPassword Generator</h1>
+    <label for="key">Choose a Key:</label>
+    <select id="key">
+        <option value="random">Random</option>
+        <option value="C">C</option>
+        <option value="F">F</option>
+        <option value="Bb">Bb</option>
+        <option value="Eb">Eb</option>
+        <option value="Ab">Ab</option>
+        <option value="Db">Db</option>
+        <option value="Gb">Gb</option>
+        <option value="G">G</option>
+        <option value="D">D</option>
+        <option value="A">A</option>
+        <option value="E">E</option>
+        <option value="B">B</option>
+    </select>
+
+    <label for="chordChangeSelect">Choose a Chord Change:</label>
+    <select id="chordChangeSelect">
+        <option value="random">Random</option>
+        <option value="0">1-6-2-5</option>
+        <option value="1">1-b2-2-b3</option>
+        <option value="2">2-5-1-6</option>
+        <option value="3">2-b2-1-6</option>
+        <option value="4">3-6-2-5</option>
+        <option value="5">6-2-5-1</option>
+        <option value="6">4-7-3-6</option>
+        <option value="7">4-5-1-1</option>
+    </select>
+
+    <button id="generateButton">Generate</button>
+
+    <div id="output" style="margin-top: 20px;">
+        <h2>Your Jazz Password: <span id="jazzPassword"></span></h2>
+        <p>Key = <span id="keyOutput"></span></p>
+        <p>Chord Change = <span id="chordChangeOutput"></span></p>
+        <p>First Chord = <span id="firstChord"></span></p>
+        <p>Second Chord = <span id="secondChord"></span></p>
+        <p>Third Chord = <span id="thirdChord"></span></p>
+        <p>Fourth Chord = <span id="fourthChord"></span></p>
+        <button id="copyButton">Copy password</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
