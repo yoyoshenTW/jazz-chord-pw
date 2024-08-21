@@ -1,8 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/abcjs-audio.css">
+    <script src="js/abcjs-basic.js" type="text/javascript"></script>
+    <script src="js/abcjs-main.js" type="text/javascript"></script>
     <title>JazzPassword Generator</title>
 </head>
 <body>
@@ -49,7 +52,22 @@
         <p>Fourth Chord = <span id="fourthChord"></span></p>
         <button id="copyButton">Copy password</button>
     </div>
-
+    <h2> Listen your Jazz Password Chord</h2>
+    <p>Please copy and paste 1~4 chords on below text area</p>
+    <div class="container">
+        <textarea id="abc" cols="60" rows="8" spellcheck="false">
+M: 4/4
+L: 1/8
+|"1st chord"z8|"2nd chord"z8|"3rd chord"z8|"4th chord"z8|
+        </textarea>
+    
+        <hr>
+        <div id="paper"></div>
+        <div id="audio"></div>
+        <br>
+        <button id="midi">Download MIDI</button>
+        <a id="midi-download" download="example.mid"></a>
+      </div>
     <script src="js/script.js"></script>
 </body>
 </html>

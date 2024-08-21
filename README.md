@@ -3,7 +3,7 @@
 No idea for new password?\
 Let's try use the Jazz chord as your complecate password
 
-This website will generate 4 chord, with different chord change.\
+This website will generate 4 chord, with different chord change.
 
 ##Website
 [https://jcpassword.swingyoyo.com/](https://jcpassword.swingyoyo.com/)
