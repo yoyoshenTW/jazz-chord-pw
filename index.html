@@ -9,40 +9,39 @@
     <title>JazzPassword Generator</title>
 </head>
 <body>
-    <h1>JazzPassword Generator</h1>
-    <p>Jazz Chord is complicated. So...How about using Jazz Chords as your Password?</p>
-    <label for="key">Choose a Key:</label>
-    <select id="key">
-        <option value="random">Random</option>
-        <option value="C">C</option>
-        <option value="F">F</option>
-        <option value="Bb">Bb</option>
-        <option value="Eb">Eb</option>
-        <option value="Ab">Ab</option>
-        <option value="Db">Db</option>
-        <option value="G">G</option>
-        <option value="D">D</option>
-        <option value="A">A</option>
-        <option value="E">E</option>
-        <option value="B">B</option>
-    </select>
-
-    <label for="chordChangeSelect">Choose a Chord Change:</label>
-    <select id="chordChangeSelect">
-        <option value="random">Random</option>
-        <option value="0">1-6-2-5</option>
-        <option value="1">1-b2-2-b3</option>
-        <option value="2">2-5-1-6</option>
-        <option value="3">2-b2-1-6</option>
-        <option value="4">3-6-2-5</option>
-        <option value="5">6-2-5-1</option>
-        <option value="6">4-7-3-6</option>
-        <option value="7">4-5-1-1</option>
-        <option value="8">1-b3-2-b2</option>
-    </select>
-
-    <button id="generateButton">Generate</button>
-
+    <div>
+        <h1>JazzPassword Generator</h1>
+        <p>Jazz Chord is complicated. So...How about using Jazz Chords as your Password?</p>
+        <label for="key">Choose a Key:</label>
+        <select id="key">
+            <option value="random">Random</option>
+            <option value="C">C</option>
+            <option value="F">F</option>
+            <option value="Bb">Bb</option>
+            <option value="Eb">Eb</option>
+            <option value="Ab">Ab</option>
+            <option value="Db">Db</option>
+            <option value="G">G</option>
+            <option value="D">D</option>
+            <option value="A">A</option>
+            <option value="E">E</option>
+            <option value="B">B</option>
+        </select>
+        <label for="chordChangeSelect">Choose a Chord Change:</label>
+        <select id="chordChangeSelect">
+            <option value="random">Random</option>
+            <option value="0">1-6-2-5</option>
+            <option value="1">1-b2-2-b3</option>
+            <option value="2">2-5-1-6</option>
+            <option value="3">2-b2-1-6</option>
+            <option value="4">3-6-2-5</option>
+            <option value="5">6-2-5-1</option>
+            <option value="6">4-7-3-6</option>
+            <option value="7">4-5-1-1</option>
+            <option value="8">1-b3-2-b2</option>
+        </select>
+        <button id="generateButton">Generate</button>
+    </div>
     <div id="output" style="margin-top: 20px;">
         <h2>Chord Result</h2>
         <p>Key = <span id="keyOutput"></span></p>
@@ -51,32 +50,27 @@
         <p>Second Chord = <span id="secondChord"></span></p>
         <p>Third Chord = <span id="thirdChord"></span></p>
         <p>Fourth Chord = <span id="fourthChord"></span></p>
-        <p>First Chord Notes= <span id="firstChordNotes"></span></p>
-        <p>Second Chord Notes= <span id="secondChordNotes"></span></p>
-        <p>Third Chord Notes= <span id="thirdChordNotes"></span></p>
-        <p>Fourth Chord Notes= <span id="fourthChordNotes"></span></p>
     </div>
     <div> 
         <div>
             <h2>Your Jazz Password</h2>
             <p>Chord Password: <b id="jazzPassword"></b> <button id="copyButton">Copy Chord password</button></p>
-            <p>Note Password: <b id="chordNotePD"></b> <button id="copyNoteButton">Copy Note password</button></p>
+            <p>Note Password: <b id="jazzNotePassword"></b> <button id="copyNoteButton">Copy Note password</button></p>
         </div>
 
         <div id="chordNoteOutput" style="margin-top: 20px;">
             <h2>Wanna listen your Password?</h2>
             <i>Copy below text and paste to input area</i>
-            <pre id="chordNoteText"></pre>
-    
+            <div>M: 2/4<br>L: 1/2<br>
+            |[<span id="firstChordNotes"></span>]|[<span id="secondChordNotes"></span>]|[<span id="thirdChordNotes"></span>]|[<span id="fourthChordNotes"></span>]|
+             </div>
         </div>
-    
         <div class="container">
             <textarea id="abc" cols="60" rows="4" spellcheck="false">
 M: 2/4
 L: 1/2
 |z|z|z|z|
             </textarea>
-        
             <hr>
             <div id="paper"></div>
             <div id="audio"></div>
