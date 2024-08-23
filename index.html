@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1>JazzPassword Generator</h1>
+    <p>Jazz Chord is complicated. So...How about using Jazz Chords as your Password?</p>
     <label for="key">Choose a Key:</label>
     <select id="key">
         <option value="random">Random</option>
@@ -19,7 +20,6 @@
         <option value="Eb">Eb</option>
         <option value="Ab">Ab</option>
         <option value="Db">Db</option>
-        <option value="Gb">Gb</option>
         <option value="G">G</option>
         <option value="D">D</option>
         <option value="A">A</option>
@@ -38,36 +38,49 @@
         <option value="5">6-2-5-1</option>
         <option value="6">4-7-3-6</option>
         <option value="7">4-5-1-1</option>
+        <option value="8">1-b3-2-b2</option>
     </select>
 
     <button id="generateButton">Generate</button>
 
     <div id="output" style="margin-top: 20px;">
-        <h2>Your Jazz Password: <span id="jazzPassword"></span></h2>
+        <h2>Chord Result</h2>
         <p>Key = <span id="keyOutput"></span></p>
         <p>Chord Change = <span id="chordChangeOutput"></span></p>
         <p>First Chord = <span id="firstChord"></span></p>
         <p>Second Chord = <span id="secondChord"></span></p>
         <p>Third Chord = <span id="thirdChord"></span></p>
         <p>Fourth Chord = <span id="fourthChord"></span></p>
-        <button id="copyButton">Copy password</button>
     </div>
-    <h2> Listen your Jazz Password Chord</h2>
-    <p>Please copy and paste 1~4 chords on below text area</p>
-    <div class="container">
-        <textarea id="abc" cols="60" rows="8" spellcheck="false">
-M: 4/4
-L: 1/8
-|"1st chord"z8|"2nd chord"z8|"3rd chord"z8|"4th chord"z8|
-        </textarea>
+    <div> 
+        <div>
+            <h2>Your Jazz Password</h2>
+            <p>Chord Password: <b id="jazzPassword"></b> <button id="copyButton">Copy Chord password</button></p>
+            <p>Note Password: <b id="chordNotePD"></b> <button id="copyNoteButton">Copy Note password</button></p>
+        </div>
+
+        <div id="chordNoteOutput" style="margin-top: 20px;">
+            <h2>Wanna listen your Password?</h2>
+            <i>Copy below text and paste to input area</i>
+            <pre id="chordNoteText"></pre>
     
-        <hr>
-        <div id="paper"></div>
-        <div id="audio"></div>
-        <br>
-        <button id="midi">Download MIDI</button>
-        <a id="midi-download" download="example.mid"></a>
-      </div>
+        </div>
+    
+        <div class="container">
+            <textarea id="abc" cols="60" rows="4" spellcheck="false">
+M: 2/4
+L: 1/2
+|z|z|z|z|
+            </textarea>
+        
+            <hr>
+            <div id="paper"></div>
+            <div id="audio"></div>
+            <br>
+            <button id="midi">Download MIDI</button>
+            <a id="midi-download" download="example.mid"></a>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
