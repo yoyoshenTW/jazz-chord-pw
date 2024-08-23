@@ -187,6 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('secondChord').innerText = chords[1];
         document.getElementById('thirdChord').innerText = chords[2];
         document.getElementById('fourthChord').innerText = chords[3];
+        document.getElementById('firstChordNotes').innerText = chordNotes[0];
+        document.getElementById('secondChordNotes').innerText = chordNotes[1];
+        document.getElementById('thirdChordNotes').innerText = chordNotes[2];
+        document.getElementById('fourthChordNotes').innerText = chordNotes[3];
 
         // Update ChordNote display
         const chordNoteText = `M: 2/4\nL: 1/2\n|[${chordNotes[0]}]|[${chordNotes[1]}]|[${chordNotes[2]}]|[${chordNotes[3]}]|`;
