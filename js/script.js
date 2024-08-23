@@ -13,13 +13,11 @@ const scales = {
     "E": ["E", "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb"],
     "B": ["B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb"]
 };
-
 // Map chord symbol
 const chordDegreeMap = {
     "1": 0, "b9": 1, "2": 2, "b3": 3, "3": 4, "4": 5,
     "#11": 6, "5": 7, "b13": 8, "6": 9, "b7": 10, "7": 11
 };
-
 // Chord Types corresponding to scale degrees
 const chordTypes = {
     "1": ["Maj", "Maj7", "Maj9", "Maj6", "Maj7#11"],
@@ -35,7 +33,6 @@ const chordTypes = {
     "b7": ["dim", "dimb7"],
     "7": ["dim", "dimb7"]
 };
-
 // Chord Changes with chordTypes reference
 const chordChanges = [
     ["1", "6", "2", "5"],
@@ -48,7 +45,6 @@ const chordChanges = [
     ["4", "5", "1", "1"],
     ["1", "b3", "2", "b9"]
 ];
-
 // Define noteToAbc for each key
 const keyToNoteAbc = {
     "C": {
@@ -100,7 +96,6 @@ const keyToNoteAbc = {
         "#11": "^e", "5": "^f", "b13": "g", "6": "^g", "7": "a", "7": "^a"
     }
 };
-
 const chordToNotes = {
     "Maj": ["1", "3", "5"],
     "Maj7": ["1", "3", "5", "7"],
@@ -119,13 +114,11 @@ const chordToNotes = {
     "dim": ["1", "b3", "#11"],
     "dimb7": ["1", "b3", "#11", "6"]
 };
-
 // Random key generator
 function getRandomKey() {
     const keys = Object.keys(scales);
     return keys[Math.floor(Math.random() * keys.length)];
 }
-
 // Random Chord Change generator
 function getRandomChordChange() {
     return chordChanges[Math.floor(Math.random() * chordChanges.length)];
@@ -134,27 +127,29 @@ function getRandomChordChange() {
 // Generate Jazz Password
 function generateJazzPassword(selectedKey, selectedChordChange) {
     let password = '';
+    let notepassword = '';
     const chords = [];
     const chordNotes = [];
     
     for (let i = 0; i < selectedChordChange.length; i++) {
-        const degreeSymbol = selectedChordChange[i];
-        const noteIndex = chordDegreeMap[degreeSymbol];
-        const note = scales[selectedKey][noteIndex];
-        const chordType = chordTypes[degreeSymbol];
-        const randomChordType = chordType[Math.floor(Math.random() * chordType.length)];
-        const chord = note + randomChordType;
-        chords.push(chord);
-        password += chord;
+        const degreeSymbol = selectedChordChange[i]; // degreeSymbol拿到例如 1 b9 2 b3
+        const noteIndex = chordDegreeMap[degreeSymbol]; //noteIndex 會拿到 0 1 2 3
+        const note = scales[selectedKey][noteIndex]; //note會拿到 "C", "Db", "D", "Eb"
+        const chordType = chordTypes[degreeSymbol]; //chordtype 會拿到一串 chord的[]
+        const randomChordType = chordType[Math.floor(Math.random() * chordType.length)]; //會拿到一個隨機的 chord
+        const chord = note + randomChordType; //在這裡 chord 就會是由 note 與 randomchordtype 組合
+        chords.push(chord); //把 chord 推到陣列chords內
+        password += chord; //順便把password 變成用 chord加總，而不是拉chords的資料
 
         // Generate ChordNote using correct key and chord intervals
-        const chordIntervals = chordToNotes[randomChordType];
+        const chordIntervals = chordToNotes[randomChordType]; //當randomChordType為Maj時，會拿到 ["1", "3", "5"] 這一串
         // Generate the correct notes for the current chord
         const chordAbcNotes = chordIntervals.map(interval => keyToNoteAbc[note][interval]);
         chordNotes.push(`${chordAbcNotes.join("")}`);
+        notepassword += `${chordAbcNotes.join("")}`;
     }
     
-    return { password, chords, chordNotes };
+    return { password, notepassword, chords, chordNotes };
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -177,9 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Generate the Jazz Password
-        const { password, chords, chordNotes } = generateJazzPassword(selectedKey, selectedChordChange);
+        const { password, notepassword, chords, chordNotes } = generateJazzPassword(selectedKey, selectedChordChange);
 
         // Display the results
+        document.getElementById('jazzNotePassword').innerText = notepassword;
         document.getElementById('jazzPassword').innerText = password;
         document.getElementById('keyOutput').innerText = selectedKey;
         document.getElementById('chordChangeOutput').innerText = selectedChordChangeText;
@@ -191,13 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('secondChordNotes').innerText = chordNotes[1];
         document.getElementById('thirdChordNotes').innerText = chordNotes[2];
         document.getElementById('fourthChordNotes').innerText = chordNotes[3];
-
-        // Update ChordNote display
-        const chordNoteText = `M: 2/4\nL: 1/2\n|[${chordNotes[0]}]|[${chordNotes[1]}]|[${chordNotes[2]}]|[${chordNotes[3]}]|`;
-        document.getElementById('chordNoteText').innerText = chordNoteText;
-
-        const chordNotePD = `${chordNotes[0]}${chordNotes[1]}${chordNotes[2]}${chordNotes[3]}`;
-        document.getElementById('chordNotePD').innerText = chordNotePD;
     });
 
     // Copy Chord password to clipboard
@@ -209,8 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Copy Note password
     document.getElementById('copyNoteButton').addEventListener('click', function() {
-        const notePassword = document.getElementById('chordNotePD').textContent;
-        copyToClipboard(notePassword);
+        const notepassword = document.getElementById('jazzNotePassword').textContent;
+        copyToClipboard(notepassword);
         alert('Note password copied to clipboard!');
     });
 
