@@ -189,7 +189,12 @@ document.addEventListener('DOMContentLoaded', function() {
         copyToClipboard(notepassword);
         alert('Note password copied to clipboard!');
     });
-    // General copy
+    // Copy Chord password to clipboard
+    document.getElementById('copylistennote').addEventListener('click', function() {
+        const password = document.getElementById('chordNoteOutput').textContent;
+        copyToClipboard(password);
+        alert("Paste to below text area to listen your chords");
+    });
     function copyToClipboard(text) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -198,4 +203,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.execCommand('copy');
         document.body.removeChild(textarea);
     }
+    
 });
