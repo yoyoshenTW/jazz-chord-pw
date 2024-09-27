@@ -1,84 +1,101 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="img/jp-icon.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/abcjs-audio.css">
-    <script src="js/abcjs-basic.js" type="text/javascript"></script>
-    <script src="js/abcjs-main.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.0.0/abcjs-basic-min.js" type="text/javascript"></script>
+    <script src="js/abc-script.js" type="text/javascript"></script>
     <title>JazzPassword Generator</title>
 </head>
-<body>
-    <div>
-        <h1>JazzPassword Generator</h1>
-        <p>Jazz Chord is complicated. So...How about using Jazz Chords as your Password?</p>
-        <label for="key">Choose a Key:</label>
-        <select id="key">
-            <option value="random">Random</option>
-            <option value="C">C</option>
-            <option value="F">F</option>
-            <option value="Bb">Bb</option>
-            <option value="Eb">Eb</option>
-            <option value="Ab">Ab</option>
-            <option value="Db">Db</option>
-            <option value="G">G</option>
-            <option value="D">D</option>
-            <option value="A">A</option>
-            <option value="E">E</option>
-            <option value="B">B</option>
-        </select>
-        <label for="chordChangeSelect">Choose a Chord Change:</label>
-        <select id="chordChangeSelect">
-            <option value="random">Random</option>
-            <option value="0">1-6-2-5</option>
-            <option value="1">1-b2-2-b3</option>
-            <option value="2">2-5-1-6</option>
-            <option value="3">2-b2-1-6</option>
-            <option value="4">3-6-2-5</option>
-            <option value="5">6-2-5-1</option>
-            <option value="6">4-7-3-6</option>
-            <option value="7">4-5-1-1</option>
-            <option value="8">1-b3-2-b2</option>
-        </select>
-        <button id="generateButton">Generate</button>
-    </div>
-    <div id="output" style="margin-top: 20px;">
-        <h2>Chord Result</h2>
-        <p>Key = <span id="keyOutput"></span></p>
-        <p>Chord Change = <span id="chordChangeOutput"></span></p>
-        <p>First Chord = <span id="firstChord"></span></p>
-        <p>Second Chord = <span id="secondChord"></span></p>
-        <p>Third Chord = <span id="thirdChord"></span></p>
-        <p>Fourth Chord = <span id="fourthChord"></span></p>
-    </div>
-    <div> 
+<body bgcolor="#7C9E81">
+    <div style="justify-content: center; align-items: center; width: 100%">
+        <div class="jpiano">
+            <img src="img/jpiano.png" width="300">
+        </div>
         <div>
-            <h2>Your Jazz Password</h2>
-            <p>Chord Password: <b id="jazzPassword"></b> <button id="copyButton">Copy Chord password</button></p>
-            <p>Note Password: <b id="jazzNotePassword"></b> <button id="copyNoteButton">Copy Note password</button></p>
+            <div class="headerword">
+                <h1 class="DisplayL">Jazz Password Generator</h1>
+                <p class="BodyL">Jazz Chord is complicated. So...How about using Jazz Chords as your Password?</p>
+            </div>
+            <div class="action">
+                <select id="key" class="dropdown-list">
+                    <option value="random">SELECT A KEY</option>
+                    <option value="C">C</option>
+                    <option value="F">F</option>
+                    <option value="Bb">Bb</option>
+                    <option value="Eb">Eb</option>
+                    <option value="Ab">Ab</option>
+                    <option value="Db">Db</option>
+                    <option value="G">G</option>
+                    <option value="D">D</option>
+                    <option value="A">A</option>
+                    <option value="E">E</option>
+                    <option value="B">B</option>
+                </select>
+                <select id="chordChangeSelect"  class="dropdown-list">
+                    <option value="random">JAZZ IT UP</option>
+                    <option value="0">1-6-2-5</option>
+                    <option value="1">1-b2-2-b3</option>
+                    <option value="2">2-5-1-6</option>
+                    <option value="3">2-b2-1-6</option>
+                    <option value="4">3-6-2-5</option>
+                    <option value="5">6-2-5-1</option>
+                    <option value="6">4-7-3-6</option>
+                    <option value="7">4-5-1-1</option>
+                    <option value="8">1-b3-2-b2</option>
+                </select>
+                <button class="send-button" id="generateButton"></button>
+            </div>
         </div>
-
-        <div id="chordNoteOutput" style="margin-top: 20px;">
-            <h2>Wanna listen your Password?</h2>
-            <i>Copy below text and paste to input area</i>
-            <div>M: 2/4<br>L: 1/2<br>
-            |[<span id="firstChordNotes"></span>]|[<span id="secondChordNotes"></span>]|[<span id="thirdChordNotes"></span>]|[<span id="fourthChordNotes"></span>]|
-             </div>
+        <div class="mypassword">
+            <h1 class="DisplayL">Password</h1>
+            <div class="chordpd">
+                <div style="height: inherit;">Chord: <span class="passwordstyle" id="jazzPassword"></span><input type="image" src="img/icon-scissors.png"  alt="send" name="Test" id="copyButton"
+                    onclick="send();" style="width:35px;height:35px;"></div>
+            </div>
+            <div class="notepd">
+                <div style="height: inherit;">Note: <span class="passwordstyle" id="jazzNotePassword"></span><input type="image" src="img/icon-scissors.png"  alt="send" name="Test" id="copyNoteButton"
+                    onclick="send();" style="width:35px;height:35px;"></div>
+            </div>
         </div>
-        <div class="container">
-            <textarea id="abc" cols="60" rows="4" spellcheck="false">
-M: 2/4
-L: 1/2
-|z|z|z|z|
-            </textarea>
-            <hr>
-            <div id="paper"></div>
-            <div id="audio"></div>
-            <br>
-            <button id="midi">Download MIDI</button>
-            <a id="midi-download" download="example.mid"></a>
+        <!--以下先隱藏-->
+        <div id="output" style="margin-top: 20px;" style="display:none">
+            <p style="display:none">Key = <span id="keyOutput"></span></p>
+            <p style="display:none">Chord Change = <span id="chordChangeOutput"></span></p>
+            <p style="display:none">First Chord = <span id="firstChord"></span></p>
+            <p style="display:none">Second Chord = <span id="secondChord"></span></p>
+            <p style="display:none">Third Chord = <span id="thirdChord"></span></p>
+            <p style="display:none">Fourth Chord = <span id="fourthChord"></span></p>
         </div>
+        <!--隱藏結束-->
+        <div> 
+            <div class="headerword">
+                <h1 class="DisplayL">HEAR YOUR PASSWORD</h1>
+                <p class="BodyL">Copy & Paste to hear your password</p>
+                <button class="copylistennote" id="copylistennote">Copy</button>
+                <div id="chordNoteOutput" style="display:none">|[<span id="firstChordNotes"></span>][<span id="secondChordNotes"></span>][<span id="thirdChordNotes"></span>][<span id="fourthChordNotes"></span>]|</div>
+            </div>
+            <div style="text-align: center;">
+                <textarea id="abc" cols="60" rows="3" spellcheck="false" class="abcarea">
+    L: 1/2 <!don't delete this line >
+    <!replace me! >
+                </textarea>
+                <div id="paper"></div>
+                <input type="image" src="img/play.png"  alt="send" name="Test" class="play-all"
+                onclick="send();" style="width:35px;height:35px;">
+                <input type="image" src="img/downloadmidi.png"  alt="send" name="Test" id="download-midi"
+                onclick="send();" style="width:35px;height:35px;">
+            </div>
+        </div>
+        <script src="js/script.js"></script>
     </div>
-    <script src="js/script.js"></script>
+    <footer style="background-color: #FFFFFF;">
+        <small>
+        © 2024. Designed & Crafted with Rhythm by Yoyo Shen & Dianne Ting. All Rights Reserved.
+        </small>
+      </footer>
 </body>
 </html>
