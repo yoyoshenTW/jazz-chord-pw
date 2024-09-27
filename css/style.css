@@ -1,0 +1,138 @@
+.chordpd, .notepd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 可根據您的需求設定高度 */
+}
+
+.chordpd > div, .notepd > div {
+  display: flex;
+  align-items: center; /* 确保内部内容垂直居中 */
+}
+
+.passwordstyle {
+    width: 350px;  /* 固定顯示寬度 */
+    height: 20px;  /* 固定高度 */
+    background-color: #D9D9D9; /* 底色 */
+    color: #141D28;  /* 文字顏色 */
+    border: 1px solid #ccc;
+    padding: 2px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.color-ww {
+  color: #EBDBC1
+}
+
+.color-mj {
+  color: #141D28
+}
+
+.color-rs {
+  color: #ED620A
+}
+
+.color-mju {
+  color: #7C9E81
+}
+
+.jpiano {
+  text-align: center;
+}
+
+.headerword {
+  text-align: center;
+}
+
+.DisplayL {
+  font-size: 67px;
+  font-weight: 400;
+  line-height: 87.1px;
+  letter-spacing: 0.03em;
+}
+
+.BodyL {
+  font-size: 21px;
+  line-height: 28px;
+}
+.action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-list {
+  flex: 1; 
+  text-align: center;
+  padding: 8px;
+  margin: 10px;
+  height: 40px;
+}
+
+.send-button {
+  text-align: center;
+  flex: 1; 
+  padding: 8px;
+  margin: 10px;
+  height: 40px;
+  background: none; /* 移除默认背景 */
+  border: none; /* 去除默认边框 */
+  padding: 0; /* 移除按钮的默认内边距 */
+  cursor: pointer; /* 鼠标悬停时显示手型指针 */
+  background-image: url(../img/generate-default.png);
+  background-size: auto 100%; /* 图片高度适应按钮，宽度按比例 */
+  background-repeat: no-repeat; /* 防止圖片重複 */
+  background-position: center; /* 圖片置中 */
+}
+
+.send-button img {
+  display: block; /* 移除图片的底部空白间距 */
+  width: 100%;
+  height: 100%; /* 确保图片填满按钮 */
+}
+
+.send-button:hover {
+  background-image: url(../img/generate-hover.png); /* 默认状态图片 */
+}
+
+.send-button:active {
+  background-image: url(../img/generate-active.png); /* 默认状态图片 */
+}
+
+#select {
+  background-color: #D9D9D9; /* 底色 */
+  color: #141D28;  /* 文字顏色 */
+  border: 1px solid #ccc;
+  padding: 2px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mypassword {
+  text-align: center;
+}
+
+.copylistennote {
+  height: 36px;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 6px;
+  border: 2px solid #141D28;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.abcarea {
+  background-color: #D9D9D9; /* 底色 */
+  color: #141D28;  /* 文字顏色 */
+  border: 1px solid #ccc;
+  padding: 2px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
