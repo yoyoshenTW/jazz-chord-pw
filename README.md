@@ -10,6 +10,8 @@
 從以下網址點擊後就可以開始用了\
 [https://jcpassword.swingyoyo.com/](https://jcpassword.swingyoyo.com/)
 
+除了我之外還有 dianne ting 為設計師
+
 <hr>
 
 ## Jazz Chord Password
