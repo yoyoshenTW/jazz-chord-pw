@@ -1,3 +1,18 @@
+html, body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body, footer {
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'Stereofidelic'; /* 自定义字体名称 */
+  src: url('font/Stereofidelic.otf') format('opentype'); /* 字体文件路径和格式 */
+}
+
 .chordpd, .notepd {
   display: flex;
   align-items: center;
@@ -40,23 +55,53 @@
 
 .jpiano {
   text-align: center;
+  padding: 141px 200px;
 }
 
 .headerword {
   text-align: center;
 }
 
+.cover-sheet {
+  width: 100%; /* 设为100%或其他具体宽度，表示允许 paper 占据的最大宽度 */
+  height: auto; /* 高度可以根据内容自动调整 */
+  overflow: hidden; /* 隐藏超出 musicsheet 的内容 */
+  position: relative; /* 确保容器正确限制内容 */
+}
+
+.musicsheet {
+  margin: 0 auto;
+  padding-left: 28%;
+  width: 100%;
+}
+
+
+
 .DisplayL {
+  font-family: 'Stereofidelic', sans-serif;
   font-size: 67px;
+  font-style: normal;
   font-weight: 400;
   line-height: 87.1px;
-  letter-spacing: 0.03em;
+  letter-spacing: 2.01px;
 }
 
 .BodyL {
   font-size: 21px;
-  line-height: 28px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 29.4px;
+  text-align: center;
 }
+
+.container {
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  gap: 125px;
+}
+
 .action {
   display: flex;
   flex-direction: row;
@@ -64,20 +109,20 @@
   align-items: center;
 }
 
-.dropdown-list {
+.action-area{
   flex: 1; 
   text-align: center;
   padding: 8px;
   margin: 10px;
-  height: 40px;
+}
+
+.dropdown-list {
+  width: auto;
 }
 
 .send-button {
-  text-align: center;
-  flex: 1; 
-  padding: 8px;
-  margin: 10px;
   height: 40px;
+  width: 180px;
   background: none; /* 移除默认背景 */
   border: none; /* 去除默认边框 */
   padding: 0; /* 移除按钮的默认内边距 */
@@ -134,5 +179,9 @@
   padding: 2px;
   text-align: center;
   display: inline-block;
+  vertical-align: middle;
+}
+
+.icon {
   vertical-align: middle;
 }
