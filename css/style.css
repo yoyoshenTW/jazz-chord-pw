@@ -13,6 +13,21 @@ body, footer {
   src: url('font/Stereofidelic.otf') format('opentype'); /* 字体文件路径和格式 */
 }
 
+.cover-picture {
+  max-height: 511px;
+  max-width: 100%;
+  width: 80%;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  /* 如果寬度夠 (這裡可以設計你想要的寬度限制)，高度固定為 511px */
+  .cover-picture {
+    height: 511px;
+    width: auto;
+  }
+}
+
 .chordpd, .notepd {
   display: flex;
   align-items: center;
@@ -32,6 +47,7 @@ body, footer {
     color: #141D28;  /* 文字顏色 */
     border: 1px solid #ccc;
     padding: 2px;
+    margin: 0 35px;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
@@ -55,7 +71,7 @@ body, footer {
 
 .jpiano {
   text-align: center;
-  padding: 141px 200px;
+  padding: 141px;
 }
 
 .headerword {
@@ -180,6 +196,7 @@ body, footer {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
+  margin: 65px 0;
 }
 
 .icon {
