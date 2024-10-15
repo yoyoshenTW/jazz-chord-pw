@@ -14,18 +14,8 @@ body, footer {
 }
 
 .cover-picture {
-  max-height: 511px;
-  max-width: 100%;
   width: 80%;
   height: auto;
-}
-
-@media (min-width: 640px) {
-  /* 如果寬度夠 (這裡可以設計你想要的寬度限制)，高度固定為 511px */
-  .cover-picture {
-    height: 511px;
-    width: auto;
-  }
 }
 
 .chordpd, .notepd {
